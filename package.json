@@ -1,0 +1,15 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "E2E headless tests for Diasend AB web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hasan Naqvi",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "phantomjs": "^1.9.18"
+  }
+}

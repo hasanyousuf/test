@@ -7,8 +7,18 @@ casper.on('page.error', function(msg, trace) {
        this.echo('   ' + step.file + ' (line ' + step.line + ')', 'ERROR');
    }
 });
-casper.test.begin('Diasend E2E headless tests', function(test) {
-   casper.start('https://se-devtest.diasend.com/diasend/');
+
+var fs = require("fs");
+fs.removeTree("artifacts");
+fs.makeDirectory("artifacts");
+
+casper.echo("Casper CLI passed options:");
+require("utils").dump(casper.cli.options);
+casper.echo("Casper CLI passed args");
+require("utils").dump(casper.cli.args);
+
+casper.test.begin('Headless tests', function(test) {
+   casper.start(server);
    casper.waitForSelector("a:nth-child(2) img",
        function success() {
            test.assertExists("a:nth-child(2) img");
@@ -27,7 +37,7 @@ casper.test.begin('Diasend E2E headless tests', function(test) {
    });
    casper.waitForSelector("input[name='user']",
        function success() {
-           this.sendKeys("input[name='user']", "se-staff-hn");
+           this.sendKeys("input[name='user']", username);
        },
        function fail() {
            test.assertExists("input[name='user']");
@@ -42,7 +52,7 @@ casper.test.begin('Diasend E2E headless tests', function(test) {
    });
    casper.waitForSelector("input[name='passwd']",
        function success() {
-           this.sendKeys("input[name='passwd']", "diatest13");
+           this.sendKeys("input[name='passwd']", password);
        },
        function fail() {
            test.assertExists("input[name='passwd']");
@@ -56,9 +66,6 @@ casper.test.begin('Diasend E2E headless tests', function(test) {
        function fail() {
            test.assertExists("form input[type=submit][value='Log in']");
    });
-
-
-
 
    /* submit form */
    casper.waitForSelector(x("//a[normalize-space(text())='Patients']"),

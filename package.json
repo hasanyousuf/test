@@ -1,17 +1,18 @@
 {
   "name": "e2e",
   "version": "1.0.0",
-  "description": "E2E headless tests for Diasend AB web application",
+  "description": "E2E test",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Hasan Naqvi",
+  "author": "Test developer",
   "license": "ISC",
   "devDependencies": {
     "casperjs": "^1.1.0-beta3",
     "grunt": "^0.4.5",
     "grunt-casperjs": "^2.1.0",
+    "grunt-contrib-jshint": "^0.11.3",
     "grunt-contrib-watch": "^0.6.1",
     "jsdoc": "^3.4.0",
     "jshint": "^2.8.0",

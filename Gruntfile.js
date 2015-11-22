@@ -12,7 +12,7 @@ grunt.initConfig({
 		},
 	casperjs: {
   		options: {
-    		casperjsOptions: [ '--no-colors', '--ssl-protocol=tlsv1','--verbose=true',
+    		casperjsOptions: [ '--no-colors', '--ssl-protocol=tlsv1','--verbose=true', '--xunit=artifacts/xunit.xml',
     		'--includes=./lib/globalvars.js,./lib/custom_functions.js',
     		'--server='+grunt.option("server"),
     		'--username=' + grunt.option("username"),
